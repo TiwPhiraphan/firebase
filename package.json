@@ -1,15 +1,17 @@
 {
   "name": "@tiwz/firebase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "tiwz",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TiwPhiraphan/firebase.git"
   },
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
     "dist"
