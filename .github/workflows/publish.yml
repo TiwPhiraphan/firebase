@@ -27,11 +27,7 @@ jobs:
             - name: INSTALL DEPENDENCIES
               run: bun install
             - name: BUILD
-              run: bun ./build.ts
-            - name: COPY README
-              run: mv ./README.md build/
-            - name: COPY LICENSE
-              run: mv ./LICENSE build/
+              run: bun build.ts
             - name: PUBLISH TO NPMJS
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,8 +1,7 @@
-
-import { build, file, write } from 'bun';
+import { build } from 'bun';
 import dts from 'bun-plugin-dts';
 
-const mjs = await build({
+await build({
     entrypoints: ['./src/index.ts'],
     plugins: [
         dts({ output:{ noBanner: true }})
@@ -12,31 +11,23 @@ const mjs = await build({
         whitespace: true,
         syntax: true
     },
-    external: ['google-auth-library','zod'],
     naming: 'index.mjs',
     sourcemap: 'none',
-    outdir: 'build/dist',
+    outdir: 'dist',
     format: 'esm',
     target: 'bun'
 });
 
-const cjs = await build({
+await build({
     entrypoints: ['./src/index.ts'],
     minify: {
         identifiers: true,
         whitespace: true,
         syntax: true
     },
-    external: ['google-auth-library','zod'],
     naming: 'index.cjs',
     sourcemap: 'none',
-    outdir: 'build/dist',
+    outdir: 'dist',
     format: 'cjs',
     target: 'bun'
 });
-
-for ( const { path } of [ ...mjs.outputs, ...cjs.outputs ] ) {
-    const content = await file( path ).text();
-    const lines = content.split('\n').slice( 1, -1 );
-    await write( path, lines.join('\n') );
-}
