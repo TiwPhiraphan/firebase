@@ -18,12 +18,12 @@ type MaybePromise<T> = T | Promise<T>
 type Maybe<T> = T | undefined
 type AsyncMaybe<T> = MaybePromise<Maybe<T>>
 
-interface TokenCacheModel {
+export type TokenCacheModel = {
     token: string
     exp: number
 }
 
-interface FirebaseProps {
+export type FirebaseProps = {
     credentials: Credentials
     database: string
     cache?: {
