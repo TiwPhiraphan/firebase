@@ -15,7 +15,7 @@ await build({
     sourcemap: 'none',
     outdir: 'dist',
     format: 'esm',
-    target: 'bun'
+    target: 'node'
 });
 
 await build({
@@ -29,5 +29,5 @@ await build({
     sourcemap: 'none',
     outdir: 'dist',
     format: 'cjs',
-    target: 'bun'
+    target: 'node'
 });
