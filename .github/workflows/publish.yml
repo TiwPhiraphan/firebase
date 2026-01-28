@@ -23,7 +23,6 @@ jobs:
               uses: oven-sh/setup-bun@v2
               with:
                 bun-version: latest
-                registry-url: "https://registry.npmjs.org"
             - name: INSTALL DEPENDENCIES
               run: bun install
             - name: BUILD
@@ -31,4 +30,4 @@ jobs:
             - name: PUBLISH TO NPMJS
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: cd ./build && npm publish --provenance --access=public
+              run: npm publish --provenance --access=public
